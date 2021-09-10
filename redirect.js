@@ -31,10 +31,10 @@ testURL.forEach((url, i) => {
 
 Promise.all(testPromise)
     .then(() => {
-        for (let i = 0; i != testURL.length; i++) {
+        for (let i = 0; i != testStatus.length; i++) {
             if (testStatus[i]) {
                 window.location.href = testURL[i]
                 break
             }
-         }
+        }
     })
