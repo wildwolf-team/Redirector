@@ -16,25 +16,25 @@ const testURL = [
 
 var testPromise = []
 var testStatus = new Array(testURL.length).fill(false)
-for (let i = 0; i != testURL.length; i++) {
+testURL.forEach((url, i) => {
     testPromise.push(
-        checkServer(1000, fetch(testURL[i], { mode: 'no-cors' }))
+        checkServer(1000, fetch(url, { mode: 'no-cors' }))
             .then((result) => {
                 testStatus[i] = true
-                console.log('Success: ' + testURL[i])
+                console.log('Success: ' + url)
             })
             .catch((e) => {
                 console.log(e)
             })
     )
-}
+})
 
 Promise.all(testPromise)
     .then(() => {
-        for (let i = 0; i != testURL.length; i++) {
-            if (testStatus[i]) {
+        testStatus.forEach((status, i) => {
+            if (status) {
                 window.location.href = testURL[i]
                 break
             }
-        }
+        })
     })
