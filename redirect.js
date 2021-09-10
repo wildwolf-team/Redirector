@@ -14,13 +14,17 @@ const testURL = [
     'https://gcurobot.quickconnect.cn'
 ]
 
+let isRedirected = false
 for (let i = 0; i < testURL.length; i++) {
-    checkServer(1000, fetch(testURL[i], { mode: 'no-cors' }))
-        .then((result) => {
-            console.log('Success: redirecting')
-            window.location.href = testURL[i]
-        })
-        .catch((e) => {
-            console.log(e)
-        })
+    if (!isRedirected) {
+        checkServer(1000, fetch(testURL[i], { mode: 'no-cors' }))
+            .then((result) => {
+                isRedirected = true
+                console.log('Success: redirecting')
+                window.location.href = testURL[i]
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
 }
