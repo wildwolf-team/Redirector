@@ -1,11 +1,7 @@
-function redirectorWrapper() {
-    redirector(testURL, testTimeout)
-}
-
 function loadRedirector() {
     let script = document.createElement('script')
     script.src = 'js/config.js'
-    script.setAttribute('onload', 'redirectorWrapper();')
+    script.setAttribute('onload', 'redirector(testURL, testTimeout, testInterval)')
     document.head.appendChild(script)
 }
 

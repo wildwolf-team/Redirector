@@ -6,3 +6,5 @@ var testURL = [
 ]
 
 var testTimeout = 1000
+
+var testInterval = 1000
