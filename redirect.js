@@ -8,9 +8,8 @@ function checkServer(msecs, promise) {
 }
 
 const testURL = [
-    'http://10.11.36.60:8080/#/signin',
-    'http://10.11.36.61:8080/#/signin',
-    'http://10.1.2.182/#/signin',
+    'http://nas-local.wildwolf.pw:8080/#/signin',
+    'http://nas-proxy.wildwolf.pw/#/signin',
     'http://gcurobot.quickconnect.cn'
 ]
 
