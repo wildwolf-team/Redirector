@@ -15,11 +15,16 @@ function redirector(url = [], timeout = 1000, interval = 3000) {
         )
     })
     Promise.all(promise).finally(() => {
+        const baseParm = window.location.search
         for (let i = 0; i != response.length; ++i) {
             if (response[i]) {
                 redirected = true
-                console.log('Redirecting to: ', url[i])
-                window.location.href = url[i]
+                let targetURL = new URL(url[i])
+                if (baseParm.startsWith('to?=')) {
+                    targetURL = new URL(baseParm.substring(4), targetURL.href)
+                }
+                console.log('Redirecting to: ', targetURL.href)
+                window.location.href = targetURL.href
                 break
             }
         }
