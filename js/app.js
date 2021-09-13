@@ -5,7 +5,7 @@ function loadRedirector() {
     document.head.appendChild(script)
 }
 
-function loadServiceworker() {
+function loadServiceWorker() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js', { scope: '/' }).then((reg) => {
             if (reg.installing) {
