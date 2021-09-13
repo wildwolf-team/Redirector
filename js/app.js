@@ -21,9 +21,9 @@ function loadServiceworker() {
     }
 }
 
-document.onreadystatechange = async () => {
+document.addEventListener('readystatechange', (event) => {
     if (document.readyState === 'complete') {
-        loadServiceworker()
+        loadServiceWorker()
         loadRedirector()
     }
-}
+})
